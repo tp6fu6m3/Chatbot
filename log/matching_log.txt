@@ -1,0 +1,12 @@
+---Sim: 0.000000, Domain: 鬧鐘, Matchee: 
+Sim: 0.000000, Domain: 問候, Matchee: 
+Sim: 0.000000, Domain: 觀光, Matchee: 
+Sim: 0.000000, Domain: 天氣, Matchee: 
+Sim: 0.000000, Domain: 吃喝玩樂, Matchee: 
+Sim: 0.000000, Domain: 股票, Matchee: 
+Sim: 0.000000, Domain: 住宿, Matchee: 
+Sim: 0.000000, Domain: 購買, Matchee: 
+Sim: 0.000000, Domain: 病症, Matchee: 
+------Sim: 0.000000, Domain: 因為疲勞, Matchee: 
+Sim: 0.000000, Domain: 其他, Matchee: 
+---
