@@ -2,6 +2,7 @@
 from gensim.models import word2vec
 from gensim.models.callbacks import CallbackAny2Vec
 
+import time
 import argparse
 parser = argparse.ArgumentParser()
 parser.add_argument('-i', '--input', type=str, default='wiki_seg.txt', help='input')
