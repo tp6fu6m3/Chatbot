@@ -1,0 +1,94 @@
+---Sim: 1.000000, Domain: 住宿, Matchee: 住宿
+Sim: 0.624560, Domain: 觀光, Matchee: 旅遊
+Sim: 0.481626, Domain: 吃喝玩樂, Matchee: 旅遊
+Sim: 0.477522, Domain: 購買, Matchee: 旅遊
+Sim: 0.231832, Domain: 天氣, Matchee: 旅遊
+Sim: 0.214728, Domain: 病症, Matchee: 住宿
+Sim: 0.111865, Domain: 股票, Matchee: 旅遊
+Sim: 0.000000, Domain: 鬧鐘, Matchee: 
+Sim: 0.000000, Domain: 問候, Matchee: 
+------Sim: 0.572389, Domain: 旅館, Matchee: 住宿
+Sim: 0.566108, Domain: 民宿, Matchee: 住宿
+Sim: 0.548414, Domain: 雙人房, Matchee: 住宿
+Sim: 0.517711, Domain: 單人房, Matchee: 住宿
+Sim: 0.459173, Domain: 酒店, Matchee: 住宿
+Sim: 0.410337, Domain: 飯店, Matchee: 住宿
+Sim: 0.315871, Domain: 墾丁, Matchee: 旅遊
+Sim: 0.240081, Domain: 一日, Matchee: 住宿
+Sim: 0.214694, Domain: 宜蘭縣, Matchee: 住宿
+Sim: 0.208293, Domain: 馬祖列島, Matchee: 旅遊
+Sim: 0.200826, Domain: 星期五, Matchee: 住宿
+Sim: 0.191754, Domain: 桃園市, Matchee: 住宿
+Sim: 0.183298, Domain: 花蓮縣, Matchee: 住宿
+Sim: 0.178110, Domain: 南投縣, Matchee: 住宿
+Sim: 0.177816, Domain: 星期六, Matchee: 住宿
+Sim: 0.176084, Domain: 十六日, Matchee: 住宿
+Sim: 0.174779, Domain: 澎湖縣, Matchee: 住宿
+Sim: 0.173472, Domain: 星期日, Matchee: 旅遊
+Sim: 0.165744, Domain: 基隆市, Matchee: 住宿
+Sim: 0.162000, Domain: 十五日, Matchee: 住宿
+Sim: 0.156137, Domain: 星期三, Matchee: 旅遊
+Sim: 0.149080, Domain: 嘉義縣, Matchee: 住宿
+Sim: 0.147246, Domain: 星期二, Matchee: 旅遊
+Sim: 0.145328, Domain: 二日, Matchee: 住宿
+Sim: 0.143904, Domain: 十四日, Matchee: 住宿
+Sim: 0.140487, Domain: 新竹縣, Matchee: 住宿
+Sim: 0.139808, Domain: 星期一, Matchee: 旅遊
+Sim: 0.135027, Domain: 金門縣, Matchee: 旅遊
+Sim: 0.130577, Domain: 三日, Matchee: 住宿
+Sim: 0.127403, Domain: 高雄市, Matchee: 旅遊
+Sim: 0.126771, Domain: 屏東縣, Matchee: 住宿
+Sim: 0.125013, Domain: 雲林縣, Matchee: 旅遊
+Sim: 0.117126, Domain: 星期四, Matchee: 旅遊
+Sim: 0.115859, Domain: 彰化縣, Matchee: 住宿
+Sim: 0.115556, Domain: 苗栗縣, Matchee: 住宿
+Sim: 0.104729, Domain: 二十三日, Matchee: 住宿
+Sim: 0.000000, Domain: 網路, Matchee: 
+Sim: 0.000000, Domain: 獨立衛浴, Matchee: 
+Sim: 0.000000, Domain: 青年旅店, Matchee: 
+Sim: 0.000000, Domain: 背包客, Matchee: 
+Sim: 0.000000, Domain: 單人床, Matchee: 
+Sim: 0.000000, Domain: 雙人床, Matchee: 
+Sim: 0.000000, Domain: 一月, Matchee: 
+Sim: 0.000000, Domain: 二月, Matchee: 
+Sim: 0.000000, Domain: 三月, Matchee: 
+Sim: 0.000000, Domain: 四月, Matchee: 
+Sim: 0.000000, Domain: 五月, Matchee: 
+Sim: 0.000000, Domain: 六月, Matchee: 
+Sim: 0.000000, Domain: 七月, Matchee: 
+Sim: 0.000000, Domain: 八月, Matchee: 
+Sim: 0.000000, Domain: 九月, Matchee: 
+Sim: 0.000000, Domain: 十月, Matchee: 
+Sim: 0.000000, Domain: 十一月, Matchee: 
+Sim: 0.000000, Domain: 十二月, Matchee: 
+Sim: 0.000000, Domain: 四日, Matchee: 
+Sim: 0.000000, Domain: 五日, Matchee: 
+Sim: 0.000000, Domain: 六日, Matchee: 
+Sim: 0.000000, Domain: 七日, Matchee: 
+Sim: 0.000000, Domain: 八日, Matchee: 
+Sim: 0.000000, Domain: 九日, Matchee: 
+Sim: 0.000000, Domain: 十日, Matchee: 
+Sim: 0.000000, Domain: 十一日, Matchee: 
+Sim: 0.000000, Domain: 十二日, Matchee: 
+Sim: 0.000000, Domain: 十三日, Matchee: 
+Sim: 0.000000, Domain: 十七日, Matchee: 
+Sim: 0.000000, Domain: 十八日, Matchee: 
+Sim: 0.000000, Domain: 十九日, Matchee: 
+Sim: 0.000000, Domain: 二十日, Matchee: 
+Sim: 0.000000, Domain: 二十一日, Matchee: 
+Sim: 0.000000, Domain: 二十二日, Matchee: 
+Sim: 0.000000, Domain: 二十四日, Matchee: 
+Sim: 0.000000, Domain: 二十五日, Matchee: 
+Sim: 0.000000, Domain: 二十六日, Matchee: 
+Sim: 0.000000, Domain: 二十七日, Matchee: 
+Sim: 0.000000, Domain: 二十八日, Matchee: 
+Sim: 0.000000, Domain: 二十九日, Matchee: 
+Sim: 0.000000, Domain: 三十日, Matchee: 
+Sim: 0.000000, Domain: 三十一日, Matchee: 
+Sim: 0.000000, Domain: 明天, Matchee: 
+Sim: 0.000000, Domain: 後天, Matchee: 
+Sim: 0.000000, Domain: 台北市, Matchee: 
+Sim: 0.000000, Domain: 台中市, Matchee: 
+Sim: 0.000000, Domain: 台南市, Matchee: 
+Sim: 0.000000, Domain: 台東縣, Matchee: 
+---
