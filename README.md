@@ -1,5 +1,5 @@
 ```
-git clone Chatbot
+git clone https://github.com/tp6fu6m3/Chatbot.git
 cd Chatbot
 pip3 install -r requirements.txt
 cd model
