@@ -2,6 +2,9 @@
 from gensim.models import word2vec
 from gensim.models.callbacks import CallbackAny2Vec
 
+import numpy as np
+import matplotlib.pyplot as plt
+import copy
 import time
 import argparse
 parser = argparse.ArgumentParser()
