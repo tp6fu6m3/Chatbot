@@ -37,7 +37,7 @@ class Chatbot(object):
                 qa_response, qa_sim = (random.choice(self.default_response), 0)
             
             if not self.isChat:
-                print('%s (confident rate:%d)' % (qa_response, qa_sim))
+                print('{} (confident rate:{})'.format(qa_response, qa_sim))
             elif qa_sim > 60:
                 print(qa_response)
             elif self.rule_match(sentence, threshold=0.4):
