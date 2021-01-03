@@ -7,23 +7,23 @@ from gensim import corpora
 from .matcher import Matcher
 
 class Evaluator(Matcher):
-    def __init__(self,segLib="Taiba"):
+    def __init__(self,segLib='Taiba'):
         super().__init__(segLib)
         self.responses = []
         self.segResponses = []
         self.totalWords = 0
 
         self.path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
-        self.debugLog = open(self.path + "/data/EvaluateLog.txt",'w',encoding="utf-8")
+        self.debugLog = open(self.path + '/log/evaluate.txt','w',encoding='utf-8')
 
         self.filteredWords = set()
         self.counterDictionary = defaultdict(int)
         self.tokenDictionary = None
 
         # 中文停用詞與特殊符號加載
-        self.loadStopWords(path=self.path + "/data/stopwords/chinese_sw.txt")
-        self.loadStopWords(path=self.path + "/data/stopwords/specialMarks.txt")
-        self.loadFilterdWord(path=self.path + "/data/stopwords/ptt_words.txt")
+        self.loadStopWords(path=self.path + '/data/stopwords/chinese_sw.txt')
+        self.loadStopWords(path=self.path + '/data/stopwords/specialMarks.txt')
+        self.loadFilterdWord(path=self.path + '/data/stopwords/ptt_words.txt')
 
     def getBestResponse(self, responses, topk, debugMode=False):
         self.responses = []
@@ -42,18 +42,15 @@ class Evaluator(Matcher):
                 self.filteredWords.add(word.strip('\n'))
 
     def buildResponses(self, responses):
-        """
-        將 json 格式中目前用不上的 user,vote 去除，只留下 Content
-        """
         self.responses = []
         for response in responses:
             clean = True
-            r = response["Content"]
+            r = response['Content']
             for word in self.filteredWords:
                 if word in r:
                     clean = False
             if clean:
-                self.responses.append(response["Content"])
+                self.responses.append(response['Content'])
 
     def segmentResponse(self):
         self.segResponses = []
@@ -71,10 +68,10 @@ class Evaluator(Matcher):
 
     def buildTokenDictionary(self):
         self.tokenDictionary = corpora.Dictionary(self.segResponses)
-        logging.info("詞袋字典建置完成，%s" % str(self.tokenDictionary))
+        logging.info('詞袋字典建置完成，%s' % str(self.tokenDictionary))
 
     def evaluateByGrade(self,topk,debug=False):
-        bestResponse = ""
+        bestResponse = ''
         candiates = []
         default = [
             ['是嗎?', 0], 

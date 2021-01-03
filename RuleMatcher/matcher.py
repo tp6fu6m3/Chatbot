@@ -3,7 +3,7 @@ import os
 import jieba
 
 class Matcher(object):
-    def __init__(self, segLib="jieba"):
+    def __init__(self, segLib='jieba'):
         self.path = os.path.abspath(os.path.join(os.path.dirname(__file__), os.path.pardir))
         logging.basicConfig(format='%(asctime)s : %(threadName)s : %(levelname)s : %(message)s', level=logging.INFO)
         self.titles = []
@@ -12,13 +12,12 @@ class Matcher(object):
         self.stopwords = set()
         self.similarity = 1.
 
-        if segLib == "Taiba":
+        if segLib == 'Taiba':
             self.useTaiba = True
         else:
             self.useTaiba = False
 
     def jiebaCustomSetting(self, dict_path, usr_dict_path):
-
         jieba.set_dictionary(dict_path)
         with open(usr_dict_path, 'r', encoding='utf-8') as dic:
             for word in dic:
@@ -57,13 +56,13 @@ class Matcher(object):
                 else:
                     self.segTitles.append(self.wordSegmentation(title))
                 count += 1
-            logging.info("已斷詞完 %d 篇文章" % count)
-            with open(self.path + '/data/SegTitles.txt','w',encoding="utf-8") as seg_title:
+            logging.info('已斷詞完 %d 篇文章' % count)
+            with open(self.path + '/data/SegTitles.txt','w',encoding='utf-8') as seg_title:
                 for title in self.segTitles:
                     seg_title.write(' '.join(title) + '\n')
-            logging.info("完成標題斷詞，結果已暫存至 data/SegTitles.txt")
+            logging.info('完成標題斷詞，結果已暫存至 data/SegTitles.txt')
         else:
-            with open(self.path + '/data/SegTitles.txt','r',encoding="utf-8") as seg_title:
+            with open(self.path + '/data/SegTitles.txt','r',encoding='utf-8') as seg_title:
                 for line in seg_title:
                     line = line.strip('\n')
                     seg = line.split()
@@ -72,4 +71,4 @@ class Matcher(object):
                         seg = [word for word in seg
                                if word not in self.stopwords]
                     self.segTitles.append(seg)
-                logging.info("%d 個標題已完成載入" % len(self.segTitles))
+                logging.info('%d 個標題已完成載入' % len(self.segTitles))

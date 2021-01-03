@@ -20,7 +20,7 @@ class QuickSearcher(object):
         return result
 
 class bestMatching(Matcher):
-    def __init__(self, segLib="Taiba", removeStopWords=False):
+    def __init__(self, segLib='Taiba', removeStopWords=False):
         super().__init__(segLib)
         self.cleanStopWords = removeStopWords
         self.D = 0
@@ -38,11 +38,11 @@ class bestMatching(Matcher):
         self.searcher = QuickSearcher()
 
         if removeStopWords:
-            self.loadStopWords("../data/stopwords/chinese_sw.txt")
-            self.loadStopWords("../data/stopwords/specialMarks.txt")
+            self.loadStopWords('../data/stopwords/chinese_sw.txt')
+            self.loadStopWords('../data/stopwords/specialMarks.txt')
 
     def initialize(self,ngram=1):
-        assert len(self.titles) > 0, "請先載入短語表"
+        assert len(self.titles) > 0, '請先載入短語表'
         self.TitlesSegmentation() # 將 self.titles 斷詞為  self.segTitles
         
         self.D = len(self.segTitles)

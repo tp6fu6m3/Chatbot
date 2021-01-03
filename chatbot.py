@@ -7,13 +7,11 @@ from RuleMatcher.answerer import Answerer
 
 class Chatbot(object):
     def __init__(self, isChat):
-        self.speech_domain = ''      # The domain of speech.
-        self.root_domain = None      # The root domain of user's input.
+        self.speech_domain = ''
         self.isChat = isChat
         if isChat:
             self.console = Console()
         self.answerer = Answerer()
-
         self.default_response = [
             '是嗎?', 
             '有道理', 
@@ -52,6 +50,5 @@ class Chatbot(object):
 
     def rule_match(self, speech, threshold):
         (domain_similarity, self.speech_domain, _), last_path = self.console.rule_match(speech, best_only=True)
-        self.root_domain = self.speech_domain if last_path == '' else last_path.split('>')[0]
         return domain_similarity >= threshold
 

@@ -7,7 +7,6 @@ from gensim import models
 
 class Rule(object):
     def __init__(self, domain, rule_terms, children, response, word2vec_model):
-
         self.id_term = domain
         self.terms = rule_terms
         self.model = word2vec_model
@@ -26,20 +25,17 @@ class Rule(object):
         ch_list = []
         for child in self.children:
             ch_list.append(child.id_term)
-
         cp_list = []
         for t in self.terms:
             cp_list.append(t)
 
         response = []
-
         data = {
-                "domain": str(self.id_term),
-                "concepts": cp_list,
-                "children": ch_list,
-                "response": response
+            'domain': str(self.id_term),
+            'concepts': cp_list,
+            'children': ch_list,
+            'response': response
         }
-
         return data
 
     def add_child(self,child_rule):
@@ -53,7 +49,7 @@ class Rule(object):
 
     def match(self, sentence, threshold=0):
         max_sim = 0.0
-        matchee = ""
+        matchee = ''
 
         for word in sentence:
             for term in self.terms:
@@ -69,15 +65,15 @@ class Rule(object):
         return [max_sim, self.id_term, matchee]
 
 class RuleBase(object):
-    def __init__(self, domain="general"):
+    def __init__(self, domain='general'):
         self.rules = {}
         self.domain = domain
         self.model = None
         self.forest_base_roots = []
 
     def __str__(self):
-        res = "There are " + str(self.rule_amount()) + " rules in the rulebase:"
-        res+= "\n-------\n"
+        res = 'There are ' + str(self.rule_amount()) + ' rules in the rulebase:'
+        res+= '\n-------\n'
         for key,rulebody in self.rules.items():
             res += str(rulebody) + '\n'
         return res
@@ -95,7 +91,7 @@ class RuleBase(object):
             op.write(json.dumps(rule_list, indent=4))
 
     def load_rules_old_format(self,path):
-        assert self.model is not None, "Please load the model before loading rules."
+        assert self.model is not None, 'Please load the model before loading rules.'
         self.rules.clear()
 
         with open(path, 'r', encoding='utf-8') as input:
@@ -104,9 +100,6 @@ class RuleBase(object):
                 new_rule = Rule(self.rule_amount(), rule_terms[0].split(','), self.model)
                 if new_rule.id_term not in self.rules:
                     self.rules[new_rule.id_term] = new_rule
-                #else
-                #    self.rules[new_rule.id_term].terms = rule_terms
-
                 if len(rule_terms) > 1:
                     # this rule has parents.
                     for parent in rule_terms[1:]:
@@ -117,7 +110,7 @@ class RuleBase(object):
                     self.forest_base_roots.append(new_rule)
 
     def load_rules(self, path, reload=False, is_root=False):
-        assert self.model is not None, "Please load the model before loading rules."
+        assert self.model is not None, 'Please load the model before loading rules.'
 
         if reload:
             self.rules.clear()
@@ -125,10 +118,10 @@ class RuleBase(object):
             json_data = json.load(input)
             # load rule and build an instance
             for data in json_data:
-                domain = data["domain"]
-                concepts_list = data["concepts"]
-                children_list = data["children"]
-                response = data["response"]
+                domain = data['domain']
+                concepts_list = data['concepts']
+                children_list = data['children']
+                response = data['response']
 
                 if domain not in self.rules:
                     rule = Rule(domain, concepts_list, children_list, response, self.model)
@@ -136,36 +129,34 @@ class RuleBase(object):
                     if is_root:
                         self.forest_base_roots.append(rule)
                 else:
-                    print("[Rules]: Detect a duplicate domain name '%s'." % domain)
+                    print('[Rules]: Detect a duplicate domain name {}.'.format(domain))
 
 
     def load_rules_from_dic(self,path):
         for file_name in os.listdir(path):
             if file_name.endswith('json'):
-                self.load_rules(path + file_name, is_root = (file_name=="rule.json"))
+                self.load_rules(path + file_name, is_root = (file_name=='rule.json'))
 
 
     def load_model(self,path):
         try:
             self.model = models.Word2Vec.load(path)  # current loading method
         except FileNotFoundError as file_not_found_err:
-            print("[Gensim] FileNotFoundError", file_not_found_err)
+            print('[Gensim] FileNotFoundError', file_not_found_err)
             exit()
         except UnicodeDecodeError as unicode_decode_err:
-            print("[Gensim] UnicodeDecodeError", unicode_decode_err)
+            print('[Gensim] UnicodeDecodeError', unicode_decode_err)
             self.model = models.KeyedVectors.load_word2vec_format(path, binary=True)  # old loading method
         except Exception as ex:
-            print("[Gensim] Exception", ex)
+            print('[Gensim] Exception', ex)
             exit()
 
     def match(self, sentence, topk=1, threshold=0, root=None):
-        log = open("log/matching_log.txt",'w',encoding='utf-8')
-
-        assert self.model is not None, "Please load the model before any match."
-
+        log = open('log/match.txt','w',encoding='utf-8')
+        assert self.model is not None, 'Please load the model before any match.'
         result_list  = []
         at_leaf_node = False
-        term_trans   = ""
+        term_trans   = ''
 
         if root is None: # then search from roots of forest.
             focused_rule = self.forest_base_roots[:]
@@ -173,21 +164,18 @@ class RuleBase(object):
             focused_rule = [self.rules[root]]
 
         while not at_leaf_node:
-
             at_leaf_node = True
-
             for rule in focused_rule:
                 result_list.append(rule.match(sentence, threshold))
-
             result_list = sorted(result_list, reverse=True , key=lambda k: k[0])
             top_domain  = result_list[0][1] # get the best matcher's term.
 
             # Output matching_log.
-            log.write("---")
+            log.write('---')
             for result in result_list:
                 s,d,m = result
-                log.write("Sim: %f, Domain: %s, Matchee: %s\n" % (s,d,m))
-            log.write("---")
+                log.write('Sim: %f, Domain: %s, Matchee: %s\n' % (s,d,m))
+            log.write('---')
 
 
             if self.rules[top_domain].has_child():
