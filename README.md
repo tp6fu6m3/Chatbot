@@ -19,7 +19,7 @@ pip3 install -r requirements.txt
 ```
 cd model
 wget https://dumps.wikimedia.org/zhwiki/20201220/zhwiki-20201220-pages-articles.xml.bz2
-python3 wiki_to_txt.py zhwiki-20201220-pages-articles.xml.bz2 wiki_texts.txt
+python3 wiki_to_txt.py
 ```
 
 3. Use Open Chinese Convert (OpenCC) to convert Simplified Chinese into Traditional Chinese
@@ -38,13 +38,13 @@ opencc -i wiki_texts.txt -o wiki_zh_tw.txt -c s2tw.json
 4. Do word segmentation by `jieba`.
 
 ```
-python3 segment.py wiki_zh_tw.txt wiki_seg.txt
+python3 segment.py
 ```
 
 5. Train the model and save it as `word2vec.model`.
 
 ```
-python3 train.py wiki_seg.txt
+python3 train.py
 cd ..
 ```
 
