@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
-from gensim.models import word2vec
+from gensim.models import Word2Vec
+from gensim.models.word2vec import LineSentence
 from gensim.models.callbacks import CallbackAny2Vec
 
 import numpy as np
@@ -36,10 +37,11 @@ class callback(CallbackAny2Vec):
         if loss < self.best_loss:
             self.best_model = copy.deepcopy(model)
             self.best_loss = loss
-        self.plot('loss.png')
+        if self.epoch==5:
+            self.plot('loss.png')
 
     def plot(self, path):
-        fig, (ax1) = plt.subplots(ncols=1, figsize=(6, 6))
+        fig, (ax1) = plt.subplots(ncols=1)
         ax1.plot(self.losses)
         plt.title('model loss')
         plt.ylabel('loss')
@@ -49,7 +51,7 @@ class callback(CallbackAny2Vec):
         plt.close()
 
 if __name__ == '__main__':
-    sentences = word2vec.LineSentence(args.input)
-    model = word2vec.Word2Vec(sentences, size=100, min_count=1, 
+    sentences = LineSentence(args.input)
+    model = Word2Vec(sentences, iter=10, size=100, min_count=1, 
         window=5, compute_loss=True, callbacks=[callback()])
     model.save('word2vec.model')
