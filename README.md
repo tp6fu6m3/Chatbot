@@ -1,6 +1,6 @@
 # Chatbot
 
-This project built a chatbot with word2vec CBOW model by using (traditional) Chinese Wiki dataset.
+This repository contains a [gensim](https://github.com/RaRe-Technologies/gensim) implementation of word2vec CBOW model running on (traditional) [**Chinese Wiki dataset**](https://zh.wikipedia.org/wiki/Wikipedia:%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD).
 
 ## Quick Start
 
@@ -12,7 +12,7 @@ cd Chatbot
 pip3 install -r requirements.txt
 ```
 
-2. Download Wiki data and transform it to `.txt` format
+2. Download [**Wiki data dump on 2020/12/20**](https://dumps.wikimedia.org/zhwiki/20201220/) and transform to `.txt` format
 
 ```
 cd model
