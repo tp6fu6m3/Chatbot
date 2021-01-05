@@ -2,7 +2,7 @@
 
 This repository contains a [**gensim**](https://radimrehurek.com/gensim/index.html) implementation of word2vec CBOW model running on (traditional) [**Chinese Wiki dataset**](https://zh.wikipedia.org/wiki/Wikipedia:%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD).
 
-We use PTT Gossiping as knowledge base of our system. By matching the most related article title with respect to user input, we choose the most confident response in the response set.
+We use PTT Gossiping as knowledge base of our system. By matching the most related article title with respect to user input, we choose the most confident response in the response set as our system output.
 
 ## Quick Start
 
