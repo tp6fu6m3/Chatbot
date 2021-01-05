@@ -1,6 +1,6 @@
 # Chatbot
 
-This repository contains a [gensim](https://github.com/RaRe-Technologies/gensim) implementation of word2vec CBOW model running on (traditional) [**Chinese Wiki dataset**](https://zh.wikipedia.org/wiki/Wikipedia:%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD).
+This repository contains a [**gensim**](https://github.com/RaRe-Technologies/gensim) implementation of word2vec CBOW model running on (traditional) [**Chinese Wiki dataset**](https://zh.wikipedia.org/wiki/Wikipedia:%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD).
 
 ## Quick Start
 
@@ -12,15 +12,20 @@ cd Chatbot
 pip3 install -r requirements.txt
 ```
 
-2. Download [**Wiki data dump on 2020/12/20**](https://dumps.wikimedia.org/zhwiki/20201220/) and transform to `.txt` format
+2. Download [**Wiki data dump on 2020/12/20**](https://dumps.wikimedia.org/zhwiki/20201220/).
 
 ```
 cd model
 wget https://dumps.wikimedia.org/zhwiki/20201220/zhwiki-20201220-pages-articles.xml.bz2
+```
+
+3. Transform the dump `.xml.bz2` file into `.txt` format. We only consider the articles whose contents are more than 50 words.
+
+```
 python3 wiki_to_txt.py
 ```
 
-3. Use Open Chinese Convert (OpenCC) to convert Simplified Chinese into Traditional Chinese
+4. Use [**Open Chinese Convert (OpenCC)**](https://github.com/BYVoid/OpenCC) to convert Simplified Chinese into Traditional Chinese.
 
 ```
 cd ../..
@@ -33,24 +38,27 @@ cd ../Chatbot/model
 opencc -i wiki_texts.txt -o wiki_zh_tw.txt -c s2tw.json
 ```
 
-4. Do word segmentation by `jieba`.
+5. Use [**jieba**](https://github.com/fxsjy/jieba) to conduct word segmentation with our own dictionary and stopwords.
 
 ```
 python3 segment.py
 ```
 
-5. Train the model and save it as `word2vec.model`.
+![Imgur](https://research.sinica.edu.tw/wp-content/uploads/2018/07/ma-natural-language-processing-07.jpg)
+
+6. Train the model and save it as `word2vec.model`.
 
 ```
 python3 train.py
 cd ..
 ```
 
-6. Demonstrate the chatbot with the well-trained model.
+7. Demonstrate the chatbot with the well-trained model.
 
 ```
 python3 demo.py
 ```
+- `-r` or `--relation` : calculate cosine similarity between word vectors  
 
 ## Repository Structure
 
