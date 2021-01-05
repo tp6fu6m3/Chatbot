@@ -1,7 +1,5 @@
 # Chatbot
 
-## Introduction
-
 This project built a chatbot with word2vec CBOW model by using (traditional) Chinese Wiki dataset.
 
 ## Quick Start
@@ -53,3 +51,57 @@ cd ..
 ```
 python3 demo.py
 ```
+
+## Repository Structure
+
+```
+Chatbot_seq2seq
+├── data
+│   ├── jieba_dict
+│   │   ├── dict.txt.big
+│   │   ├── stopword.txt
+│   │   └── userdict.txt
+│   ├── ptt
+│   │   ├── 0.json
+│   │   ├── ...
+│   │   └── 248.json
+│   ├── stopwords
+│   │   ├── chinese_sw.txt
+│   │   ├── gossiping.tag
+│   │   ├── ptt_words.txt
+│   │   └── specialMarks.txt
+│   ├── SegTitles.txt
+│   ├── Titles.txt
+│   └── User_info.txt
+├── log
+│   └── match.txt
+├── model
+│   ├── segment.py
+│   ├── train.py
+│   └── wiki_to_txt.py
+├── RuleMatcher
+│   ├── rule
+│   │   ├── alarm_rule.json
+│   │   ├── entertainment.json
+│   │   ├── hotel_locale_reason.json
+│   │   ├── hotel_rules.json
+│   │   ├── hotel_time_reason.json
+│   │   ├── medical_description_reason.json
+│   │   ├── medical_rules.json
+│   │   ├── medical_subject_reason.json
+│   │   ├── purchase_rules.json
+│   │   └── rule.json
+│   ├── answerer.py
+│   ├── bestMatch.py
+│   ├── evaluate.py
+│   ├── matcher.py
+│   └── rulebase.py
+├── chatbot.py
+├── console.py
+├── demo.py
+├── README.md
+└── requirements.txt
+
+```
+
+
