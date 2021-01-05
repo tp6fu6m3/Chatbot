@@ -1,6 +1,6 @@
 # Chatbot
 
-This repository contains a [**gensim**](https://github.com/RaRe-Technologies/gensim) implementation of word2vec CBOW model running on (traditional) [**Chinese Wiki dataset**](https://zh.wikipedia.org/wiki/Wikipedia:%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD).
+This repository contains a [**gensim**](https://radimrehurek.com/gensim/index.html) implementation of word2vec CBOW model running on (traditional) [**Chinese Wiki dataset**](https://zh.wikipedia.org/wiki/Wikipedia:%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD).
 
 We use PTT Gossiping as knowledge base of our system. By matching the most related article title with respect to user input, we choose the most confident response in the response set.
 
@@ -40,7 +40,7 @@ cd ../Chatbot/model
 opencc -i wiki_texts.txt -o wiki_zh_tw.txt -c s2tw.json
 ```
 
-5. Use [**jieba**](https://github.com/fxsjy/jieba) to conduct word segmentation with our own dictionary and stopwords.
+5. Use [**jieba**](https://pypi.org/project/jieba/) to conduct word segmentation with our own dictionary and stopwords.
 
 ```
 python3 segment.py
