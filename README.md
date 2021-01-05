@@ -2,6 +2,8 @@
 
 This repository contains a [**gensim**](https://github.com/RaRe-Technologies/gensim) implementation of word2vec CBOW model running on (traditional) [**Chinese Wiki dataset**](https://zh.wikipedia.org/wiki/Wikipedia:%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD).
 
+We use PTT Gossiping as knowledge base of our system. By matching the most related article title with respect to user input, we choose the most confident response in the response set.
+
 ## Quick Start
 
 1. Clone and navigate to the downloaded repository. Further, install required pip packages.
@@ -12,7 +14,7 @@ cd Chatbot
 pip3 install -r requirements.txt
 ```
 
-2. Download [**Wiki data dump on 2020/12/20**](https://dumps.wikimedia.org/zhwiki/20201220/).
+2. Download zhwiki dump progress on 2020/12/20.
 
 ```
 cd model
@@ -25,7 +27,7 @@ wget https://dumps.wikimedia.org/zhwiki/20201220/zhwiki-20201220-pages-articles.
 python3 wiki_to_txt.py
 ```
 
-4. Use [**Open Chinese Convert (OpenCC)**](https://github.com/BYVoid/OpenCC) to convert Simplified Chinese into Traditional Chinese.
+4. Use [**Open Chinese Convert**](https://github.com/BYVoid/OpenCC) to convert Simplified Chinese into Traditional Chinese.
 
 ```
 cd ../..
@@ -43,8 +45,6 @@ opencc -i wiki_texts.txt -o wiki_zh_tw.txt -c s2tw.json
 ```
 python3 segment.py
 ```
-
-![Imgur](https://research.sinica.edu.tw/wp-content/uploads/2018/07/ma-natural-language-processing-07.jpg)
 
 6. Train the model and save it as `word2vec.model`.
 
